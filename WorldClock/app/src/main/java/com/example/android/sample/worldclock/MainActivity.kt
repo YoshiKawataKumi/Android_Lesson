@@ -19,19 +19,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // MARK: fields
-        // timeZone
-        val timeZone = TimeZone.getDefault()
+        // Activity
+        val timezone_select = Intent(this, TimeZoneSelectActivity::class.java)
         // UI
         val timeZoneView = this.findViewById<TextView>(R.id.timeZone)
         val addButton = findViewById<Button>(R.id.add)
+        // timeZone
+        val timeZone = TimeZone.getDefault()
 
         // MARK: get value
         timeZoneView.text = timeZone.displayName
 
         // MARK: methods
         addButton.setOnClickListener {
-            val intent = Intent(this, TimeZoneSelectActivity::class.java)
-            startActivityForResult(intent, 1)
+            startActivityForResult(timezone_select, 1)
         }
 
         showWorldClocks()
