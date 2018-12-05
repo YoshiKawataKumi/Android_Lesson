@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         showWorldClocks()
-
     }
 
     private fun showWorldClocks() {
@@ -44,12 +43,11 @@ class MainActivity : AppCompatActivity() {
 
         val list = findViewById<ListView>(R.id.clockList)
         list.adapter = TimeZoneAdapter(this, timeZones.toTypedArray())
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == 1
-            && requestCode == Activity.RESULT_OK
+            && resultCode == Activity.RESULT_OK
             && data != null) {
             val timeZone = data.getStringExtra("timeZone")
             val pref = getSharedPreferences("prefs", Context.MODE_PRIVATE)
