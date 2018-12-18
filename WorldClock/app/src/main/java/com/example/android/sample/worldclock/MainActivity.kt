@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         list.adapter = TimeZoneAdapter(this, timeZones.toTypedArray())
     }
 
+    // Callback from startActivityForResult()
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == 1
             && resultCode == Activity.RESULT_OK
